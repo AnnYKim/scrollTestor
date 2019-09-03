@@ -162,10 +162,70 @@
     })
     .addIndicators();
 
+
+  var jar = document.querySelectorAll(".mainJar");
+
+  jar.forEach(function (el) {
+    el.addEventListener("mouseenter", function (e) {
+      e.target.parentElement.classList.add("jar__opened");
+    });
+    el.addEventListener("mouseleave", function (e) {
+      e.target.parentElement.classList.remove("jar__opened");
+    })
+  });
+
+  var particleElem1 = document.querySelector(".part1");
+  var particleElem2 = document.querySelector(".part2");
+
+  var particles1 = new ScrollMagic.Scene({
+      triggerHook: 0.85,
+      triggerElement: "#spacer1",
+      duration: "200%"
+    })
+    .setTween(particleElem1, {
+      y: "-60%",
+      ease: Linear.easeNone
+    })
+    .addIndicators({
+      name: "asdfasdf"
+    });
+  var particles2 = new ScrollMagic.Scene({
+      triggerHook: 0.85,
+      triggerElement: "#section2",
+      duration: "100%"
+    })
+    .setTween(particleElem2, {
+      y: "-60%",
+      ease: Linear.easeNone
+    })
+    .addIndicators({
+      name: "asdfasdf"
+    });
+
+
   controller.addScene([scene1,
-    scene2, scene3
+    scene2, scene3,
+    particles1,
+    particles2
   ]);
 
+  // var mousePos = {
+  //   x: 0,
+  //   y: 0
+  // }
+
+  // window.addEventListener("mousemove", function (e) {
+  //   mousePos.x = -700 + e.clientY / this.window.innerWidth * 60;
+  //   // mousePos.x = (this.window.innerWidt  / 2)
+  //   mousePos.y = -400 + e.clientX / this.window.innerHeight * 60;
+
+  //   this.console.log(particles)
+
+  //   particles.forEach(function (e) {
+  //     e.style.left = (e.offsetWidth / 2) + mousePos.x + "px";
+  //     e.style.top = (e.offsetHeight / 2) + mousePos.y + "px";
+  //   })
+  // })
 
 
   // window.onload = function () {

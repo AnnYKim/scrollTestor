@@ -1,4 +1,5 @@
 $minWidth: 960px;
+$maxWidth: 1600px;
 
 html,
 body,
@@ -75,7 +76,7 @@ body {
   position: relative;
   width: 100%;
   min-width: $minWidth;
-  max-width: 1800px;
+  // max-width: $maxWidth;
   outline: 3px solid gold;
   margin: 0 auto;
 }
@@ -161,6 +162,7 @@ body {
   opacity: 0.33;
   margin-top: 0px;
   width: 100%;
+  // max-width: 1800px;
   min-width: $minWidth;
   text-align: center;
   color: rgb(255, 255, 255);
@@ -190,7 +192,7 @@ body {
 
   &--image {
     position: relative;
-    width: 100%;
+    width: 70%;
     // min-width: 320px;
     // max-width: 450px;
     margin-right: 50px;
@@ -204,7 +206,7 @@ body {
   }
 
   &--text {
-    width: 80%;
+    width: 90%;
     font-size: 16px;
     line-height: 140%;
 
@@ -237,7 +239,7 @@ body {
     z-index: 3;
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 50%;
+    top: 80%;
     left: 50%;
     pointer-events: none;
   }
@@ -259,8 +261,14 @@ body {
     position: absolute;
     transform: translate(-50%, -50%);
     top: 80%;
-    left: 40%;
+    left: 50%;
     pointer-events: none;
+
+
+    img {
+      // display: block;
+      // position: absolute;
+    }
   }
 
   .jar-cover--image {
@@ -301,7 +309,7 @@ body {
   height: 525px;
   margin-top: calc((-525px) / 2);
   margin-left: calc((-328px) / 2);
-  transition: transform 1s cubic-bezier(.5, 0, 0, 1);
+  transition: transform 0.7s cubic-bezier(.5, 0, 0, 1);
 }
 
 .jar-wrapper {
@@ -316,7 +324,7 @@ body {
 
   .jar-cap {
     position: absolute;
-    transition: transform 1s cubic-bezier(.5, 0, 0, 1);
+    transition: transform 0.7s cubic-bezier(.5, 0, 0, 1);
   }
 
   .jar-cap-front {
@@ -332,7 +340,7 @@ body {
     left: calc(50% - 2px);
     transform: translateX(-50%);
     z-index: 1;
-    transition: transform 1s cubic-bezier(.5, 0, 0, 1);
+    transition: transform 0.7s cubic-bezier(.5, 0, 0, 1);
   }
 
   .jar-glass {
@@ -341,6 +349,7 @@ body {
     margin: 0;
     padding: 0;
     z-index: 2;
+    transition: transform 0.7s cubic-bezier(.5, 0, 0, 1);
   }
 
   .jar-cover {
@@ -354,6 +363,7 @@ body {
     overflow: hidden;
     -webkit-clip-path: url(#product-cover--clip-path);
     clip-path: url(#product-cover--clip-path);
+    transition: transform 0.7s cubic-bezier(.5, 0, 0, 1);
   }
 
   .jar-cover--image {
@@ -439,4 +449,30 @@ body {
     text-align: center;
     padding-bottom: 40px;
   }
+}
+
+.jar__opened {
+  outline: 4px solid darkgoldenrod;
+
+  .jar-cap-front {
+    transform: translate(-165px, -165px) rotate(-15deg);
+    transition: transform 0.7s cubic-bezier(.5, 0, 0, 1);
+  }
+
+  .jar-cap-back {
+    transform: translate(-140px, -165px) rotate(-15deg);
+    transition: transform 0.7s cubic-bezier(.5, 0, 0, 1);
+  }
+
+  .jar-glass,
+  .jar-cover {
+    transform: translate(-30px, -0px) rotate(20deg);
+    transition: transform 0.7s cubic-bezier(.5, 0, 0, 1);
+  }
+}
+
+.particles {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
